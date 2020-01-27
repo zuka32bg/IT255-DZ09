@@ -1,0 +1,28 @@
+<body>
+  <div class="container mt-5 mb-5">
+    <div class="" style="text-align:center; font-family: 'Arial'">
+      <h2 class="card-header info-color white-text text-center py-4">
+        <strong>IT255-DZ09-3496</strong>
+      </h2>
+
+<div class="container mt-4 mb-4">
+  <div class=" mb-5">
+    <h3>Pretraga Video Klipova</h3>
+      <input [(ngModel)]="searchText" placeholder="Unesite naziv videa">
+    </div>
+    <div class="mt-2 mb-5">
+      <a href="#" (click)="addVideo()" class="btn btn-primary">Dodavanje</a>
+    </div>
+    <div class="mt-2 mb-5">
+      <a href="#" (click)="sort('desc')" class="btn btn-primary">Sortiranje opadajuci </a>
+      <a href="#" (click)="sort('asc')" class="btn btn-primary">Sortiranje rastuci</a>
+    </div>
+  <div class="row">
+    <div class="col-md-4" *ngFor="let video of videos | filter : searchText; index as i; ">
+      <app-video-box 
+      (videoToDelete)="deleteVideo($event)"
+      (updateVideo)="updateVideo($event)"
+      [video]="video"></app-video-box>
+    </div>
+  </div>
+</div>
